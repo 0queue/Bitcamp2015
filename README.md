@@ -3,9 +3,15 @@ Thomas Harris and Jake Sandler
 
 Code from Bitcamp 2015
 
-Proof of Concept currently hold shelf slicing code.
+## What it does now
+- Service.sh starts the server, waits to receive a file
+- when it does, it runs it through tester (looks for doritos by default...)
+- reports which shelf may or may not have doritos on them
 
-## Roadmap
-- shelf slicing
-- Metamind training
-- Python-Metamind interface
+## Improvements one could make
+- Train Metamind with A LOT more data
+- Train Metamind with EVEN MORE data
+- less hardcoded values
+- more flexible server
+- further subdivision of shelves
+- ad infinitum...
