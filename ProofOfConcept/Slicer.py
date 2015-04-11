@@ -29,6 +29,7 @@ class Slicer:
         dbgimg = copy.deepcopy(self.img)
         for y in self.ys:
             cv2.line(dbgimg, (0, y), (dbgimg.shape[1], y), (0, 255, 0))
+        cv2.imwrite(self.dbg_path, dbgimg)
             
 
     def __init__(self, img_path, dbg_path, dbg):
@@ -62,4 +63,17 @@ class Slicer:
 
         if self.DEBUG:
             print self.ys
-            
+            self.__output_dbg_img()
+
+    def create_slices (self, min_height):
+        '''makes the slics array, the image slices at the ys values'''
+        self.slics = []
+
+        for i in range(0, len(self.ys) - 1):
+            if self.ys[i+1] = self.ys[i] > min_height:
+                self.slics.append(self.img[self.ys[i]:self.ys[i+1], 0:self.img.shape[1]])
+
+    def output_slices (self, prefix):
+        '''write the slices to files: prefix#.jpg'''
+        for i in range(0, len(self.slics)):
+            cv2.imwrite(prefix + str(i) + ".jpg", self.slics[i])
