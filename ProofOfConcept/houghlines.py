@@ -45,8 +45,9 @@ print ys
 ys.insert(0, 0);    # 0 is the first y index
 
 for i in range(0,len(ys)-1):
-    slic = img[ys[i]:ys[i+1], 0:img.shape[1]]
-    cv2.imwrite("slice" + str(i) + ".jpg", slic)
+    if ys[i+1] - ys[i] > 150:
+        slic = img[ys[i]:ys[i+1], 0:img.shape[1]]
+        cv2.imwrite("slice" + str(i) + ".jpg", slic)
     
 
 cv2.imwrite("gray.jpg", bw)
