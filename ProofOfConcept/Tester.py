@@ -15,7 +15,7 @@ with open(sys.argv[1], "r") as apikey:
 key = key.rstrip()
 
 set_api_key(key)
-classifier = ClassificationModel(id=25007)
+classifier = ClassificationModel(id=25011)
 print ("-----")
 
 s = Slicer(sys.argv[2], "out.jpg", True)

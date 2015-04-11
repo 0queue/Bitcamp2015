@@ -5,9 +5,9 @@
 python ./FoodFindServer/server.py &
 PID=$!
 
-trap "killall $PID" SIGTERM SIGINT
+trap "{ kill $PID; exit; }" SIGTERM SIGINT
 
-while 1; do
+while true; do
     sleep 5
     if [ -e "test.jpg" ]
     then
