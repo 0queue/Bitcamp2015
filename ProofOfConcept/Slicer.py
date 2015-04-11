@@ -52,11 +52,15 @@ class Slicer:
             if y0-y1 < variance and y0-y1 > -variance:
                 self.ys.append(y0)
 
+        self.ys.sort()
+
         if self.DEBUG:
             print self.ys
 
         for i in range(0, 100):
             self.__consolidate(self.ys, 50)
+
+        print self.ys
 
         self.ys = self.__uniq(self.ys)
         self.ys.insert(0, 0) # zero is the first y value
