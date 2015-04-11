@@ -56,7 +56,7 @@ class Slicer:
             print self.ys
 
         for i in range(0, 100):
-            self.__consolidate(self.ys)
+            self.__consolidate(self.ys, 50)
 
         self.ys = self.__uniq(self.ys)
         self.ys.insert(0, 0) # zero is the first y value
@@ -70,7 +70,7 @@ class Slicer:
         self.slics = []
 
         for i in range(0, len(self.ys) - 1):
-            if self.ys[i+1] = self.ys[i] > min_height:
+            if self.ys[i+1] - self.ys[i] > min_height:
                 self.slics.append(self.img[self.ys[i]:self.ys[i+1], 0:self.img.shape[1]])
 
     def output_slices (self, prefix):
